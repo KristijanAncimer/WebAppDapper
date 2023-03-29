@@ -1,0 +1,33 @@
+﻿@model WebAppDapper.Models.ViewModel
+
+@{
+    ViewData["Title"] = "GetById/{id}";
+}
+
+
+<div>
+    <h4>ViewModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            
+        </dt>
+        <dd class = "col-sm-10">
+
+            <thread>
+            <th><p>Naziv stroja:</p>@Html.DisplayFor(model => model.naziv)</th>
+                <th><p>Sveukupna prosjecna vrijednost trajanja svih kvarova na ovom stroju izrazena u satima:</p>@Html.DisplayFor(model => model.trajanje)</th>
+                <p></p>
+                <th><p>Kvarovi:</p>@Html.Partial("/Views/Stroj/Partial/GetById.cshtml", Model.Kvarovi)</th>
+            </thread>
+
+
+            
+
+            
+        </dd>
+    </dl>
+</div>
+<div>|
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<WebAppDapper.Models.Kvar>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.naziv_kvara)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.naziv_stroja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.prioritet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vrijeme_pocetka)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vrijeme_zavrsetka)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.detaljni_opis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status_kvara)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.naziv_kvara)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.naziv_stroja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prioritet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vrijeme_pocetka)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vrijeme_zavrsetka)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.detaljni_opis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status_kvara)
+            </td>
+            <td>
+                    <a asp-controller="Kvar" asp-action="Update" asp-route-Id="@item.Id" class="btn btn-outline-info btn-sm">Update</a> &emsp;
+                    <form asp-controller="Kvar" asp-action="Delete" asp-route-Id="@item.Id" onclick="confirm('Jeste li sigurni da zelite izbrisati ova kvar @item.naziv_kvara')">
+                        <button class="btn btn-outline-danger btn-sm">Delete</button>
+                    </form>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
